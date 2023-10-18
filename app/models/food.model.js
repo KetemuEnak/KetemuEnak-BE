@@ -1,4 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
+  const defineUserModel = require("./user.model");
+  const User = defineUserModel(sequelize, Sequelize);
   const Foods = sequelize.define("Foods", {
     id: {
       type: Sequelize.INTEGER,
@@ -29,7 +31,13 @@ module.exports = (sequelize, Sequelize) => {
     },
   });
 
-  // Foods.belongsTo(User, { foreignKey: "id_users", as: "user" });
+  Foods.belongsTo(User, { foreignKey: "id_users", as: "user" });
+
+  // Foods.associate = (models) => {
+  //   Foods.belongsTo(models.user, {
+  //     foreignKey: "id_users",
+  //   });
+  // };
 
   return Foods;
 };

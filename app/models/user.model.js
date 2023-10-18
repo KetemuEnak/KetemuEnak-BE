@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
-  const User = sequelize.define(
-    "User",
+  const Users = sequelize.define(
+    "Users",
     {
       id: {
         type: Sequelize.INTEGER,
@@ -45,9 +45,9 @@ module.exports = (sequelize, Sequelize) => {
     },
     {
       timestamps: false, // Disable the default timestamps created_at and updated_at
-      tableName: "users", // Specify the name of your table if it's different from the model name
+      tableName: "Users", // Specify the name of your table if it's different from the model name
     }
   );
 
-  return User;
+  return Users;
 };

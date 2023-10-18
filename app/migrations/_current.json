@@ -1,0 +1,301 @@
+{
+    "tables": {
+        "tutorials": {
+            "tableName": "tutorials",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "title": {
+                    "field": "title",
+                    "seqType": "Sequelize.STRING"
+                },
+                "description": {
+                    "field": "description",
+                    "seqType": "Sequelize.STRING"
+                },
+                "published": {
+                    "field": "published",
+                    "seqType": "Sequelize.BOOLEAN"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "Events": {
+            "tableName": "Events",
+            "schema": {
+                "id": {
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "title": {
+                    "field": "title",
+                    "seqType": "Sequelize.STRING"
+                },
+                "id_eo": {
+                    "references": {
+                        "model": "Users",
+                        "key": "id"
+                    },
+                    "field": "id_eo",
+                    "allowNull": true,
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "description": {
+                    "field": "description",
+                    "seqType": "Sequelize.STRING"
+                },
+                "img_url": {
+                    "field": "img_url",
+                    "seqType": "Sequelize.STRING"
+                },
+                "time": {
+                    "field": "time",
+                    "seqType": "Sequelize.DATE"
+                },
+                "alamat": {
+                    "field": "alamat",
+                    "seqType": "Sequelize.STRING"
+                },
+                "city": {
+                    "field": "city",
+                    "seqType": "Sequelize.STRING"
+                },
+                "ticket_price": {
+                    "defaultValue": {
+                        "value": 0
+                    },
+                    "field": "ticket_price",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "max_seller": {
+                    "field": "max_seller",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "url_website": {
+                    "allowNull": true,
+                    "field": "url_website",
+                    "seqType": "Sequelize.STRING"
+                },
+                "is_publish": {
+                    "field": "is_publish",
+                    "seqType": "Sequelize.BOOLEAN"
+                },
+                "published_at": {
+                    "allowNull": true,
+                    "field": "published_at",
+                    "seqType": "Sequelize.DATE"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "Sellers": {
+            "tableName": "Sellers",
+            "schema": {
+                "id": {
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "id_seller": {
+                    "references": {
+                        "model": "Users",
+                        "key": "id"
+                    },
+                    "field": "id_seller",
+                    "allowNull": true,
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "id_event": {
+                    "references": {
+                        "model": "Events",
+                        "key": "id"
+                    },
+                    "field": "id_event",
+                    "allowNull": true,
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "status": {
+                    "field": "status",
+                    "seqType": "Sequelize.ENUM('pending', 'accepted', 'rejected')"
+                },
+                "accepted_at": {
+                    "allowNull": true,
+                    "field": "accepted_at",
+                    "seqType": "Sequelize.DATE"
+                },
+                "rejected_at": {
+                    "allowNull": true,
+                    "field": "rejected_at",
+                    "seqType": "Sequelize.DATE"
+                },
+                "rejected_reason": {
+                    "allowNull": true,
+                    "field": "rejected_reason",
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "Users": {
+            "tableName": "Users",
+            "schema": {
+                "id": {
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "email": {
+                    "allowNull": false,
+                    "field": "email",
+                    "seqType": "Sequelize.STRING"
+                },
+                "name": {
+                    "field": "name",
+                    "seqType": "Sequelize.STRING"
+                },
+                "password": {
+                    "allowNull": false,
+                    "field": "password",
+                    "seqType": "Sequelize.STRING"
+                },
+                "role": {
+                    "allowNull": false,
+                    "field": "role",
+                    "seqType": "Sequelize.ENUM('seller', 'eo')"
+                },
+                "address": {
+                    "field": "address",
+                    "seqType": "Sequelize.STRING"
+                },
+                "description": {
+                    "field": "description",
+                    "seqType": "Sequelize.STRING"
+                },
+                "city": {
+                    "field": "city",
+                    "seqType": "Sequelize.STRING"
+                },
+                "img_url": {
+                    "field": "img_url",
+                    "seqType": "Sequelize.STRING"
+                },
+                "created_at": {
+                    "defaultValue": {
+                        "internal": true,
+                        "value": "Sequelize.Literal"
+                    },
+                    "field": "created_at",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updated_at": {
+                    "defaultValue": {
+                        "internal": true,
+                        "value": "Sequelize.Literal"
+                    },
+                    "field": "updated_at",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "Foods": {
+            "tableName": "Foods",
+            "schema": {
+                "id": {
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "id_users": {
+                    "references": {
+                        "model": "Users",
+                        "key": "id"
+                    },
+                    "field": "id_users",
+                    "allowNull": true,
+                    "onDelete": "NO ACTION",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "category": {
+                    "field": "category",
+                    "seqType": "Sequelize.ENUM('food', 'snack', 'drink')"
+                },
+                "food_name": {
+                    "field": "food_name",
+                    "seqType": "Sequelize.STRING"
+                },
+                "img_url": {
+                    "field": "img_url",
+                    "seqType": "Sequelize.STRING"
+                },
+                "description": {
+                    "field": "description",
+                    "seqType": "Sequelize.STRING"
+                },
+                "price": {
+                    "field": "price",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        }
+    },
+    "revision": 1
+}

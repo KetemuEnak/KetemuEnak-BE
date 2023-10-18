@@ -1,7 +1,9 @@
-const User = require("./user.model");
-const Event = require("./event.model");
-
 module.exports = (sequelize, Sequelize) => {
+  const defineUserModel = require("./user.model");
+  const defineEventModel = require("./event.model");
+
+  const User = defineUserModel(sequelize, Sequelize);
+  const Event = defineEventModel(sequelize, Sequelize);
   const Seller = sequelize.define("Seller", {
     id: {
       type: Sequelize.INTEGER,
@@ -18,7 +20,7 @@ module.exports = (sequelize, Sequelize) => {
     id_event: {
       type: Sequelize.INTEGER,
       references: {
-        model: "Event",
+        model: "Events",
         key: "id",
       },
     },
@@ -39,8 +41,8 @@ module.exports = (sequelize, Sequelize) => {
     },
   });
 
-  // Seller.belongsTo(User, { foreignKey: "id_seller", as: "seller" });
-  // Seller.belongsTo(Event, { foreignKey: "id_event", as: "event" });
+  Seller.belongsTo(User, { foreignKey: "id_seller", as: "seller" });
+  Seller.belongsTo(Event, { foreignKey: "id_event", as: "event" });
 
   return Seller;
 };
