@@ -9,7 +9,18 @@ const secretKey = 'secret_key'; // Replace with your secret key
 
 const register = async (req, res) => {
 	try {
-		const { email, password, role } = req.body;
+		const {
+			email,
+			password,
+			role,
+			contact,
+			name,
+			address,
+			description,
+			city,
+			img_url,
+			socmed_or_web_url
+		} = req.body;
 
 		// Hash the password before saving it
 		const hashedPassword = await bcrypt.hash(password, 10);
@@ -18,7 +29,14 @@ const register = async (req, res) => {
 		const user = await User.create({
 			email,
 			password: hashedPassword,
-			role
+			role,
+			contact,
+			name,
+			address,
+			description,
+			city,
+			img_url,
+			socmed_or_web_url
 			// Add other user fields as needed
 		});
 

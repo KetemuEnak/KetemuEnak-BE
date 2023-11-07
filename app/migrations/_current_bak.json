@@ -212,10 +212,6 @@
                     "field": "address",
                     "seqType": "Sequelize.STRING"
                 },
-                "contact": {
-                    "field": "contact",
-                    "seqType": "Sequelize.STRING"
-                },
                 "description": {
                     "field": "description",
                     "seqType": "Sequelize.STRING"
@@ -226,10 +222,6 @@
                 },
                 "img_url": {
                     "field": "img_url",
-                    "seqType": "Sequelize.STRING"
-                },
-                "socmed_or_web_url": {
-                    "field": "socmed_or_web_url",
                     "seqType": "Sequelize.STRING"
                 },
                 "created_at": {
@@ -305,5 +297,5 @@
             "indexes": []
         }
     },
-    "revision": 2
+    "revision": 1
 }
