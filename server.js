@@ -4,6 +4,7 @@ const cors = require('cors');
 const authRouter = require('./app/routes/auth.router.js');
 const eventsRoute = require('./app/routes/events.router.js');
 const userRouter = require('./app/routes/test.router.js');
+const sellerRouter = require('./app/routes/seller.router.js');
 const EORouter = require('./app/routes/eventorganizer.router.js');
 
 const app = express();
@@ -36,13 +37,14 @@ db.sequelize
 
 // simple route
 app.get('/', (req, res) => {
-	res.json({ message: 'Welcome to bezkoder application.' });
+	res.json({ message: 'Hello world!' });
 });
 
 app.use('/eo', EORouter); // just for test, remove it later
 // app.use('/test', userRouter); // just for test, remove it later
 app.use('/auth', authRouter);
 app.use('/events', eventsRoute);
+app.use('/seller', sellerRouter);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

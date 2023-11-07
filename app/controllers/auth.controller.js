@@ -41,7 +41,9 @@ const register = async (req, res) => {
 		});
 
 		// Create a JWT token
-		const token = jwt.sign({ userId: user.id }, secretKey, { expiresIn: '1h' });
+		const token = jwt.sign({ userId: user.id, role: user.role }, secretKey, {
+			expiresIn: '1h'
+		});
 
 		res.json({ user, token });
 	} catch (error) {
