@@ -47,6 +47,7 @@ module.exports = (sequelize, Sequelize) => {
       },
       is_publish: {
         type: Sequelize.BOOLEAN,
+        defaultValue: false,
       },
       published_at: {
         type: Sequelize.DATE,

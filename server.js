@@ -5,6 +5,7 @@ const authRouter = require('./app/routes/auth.router.js');
 const eventsRoute = require('./app/routes/events.router.js');
 const userRouter = require('./app/routes/test.router.js');
 const sellerRouter = require('./app/routes/seller.router.js');
+const EORouter = require('./app/routes/eventorganizer.router.js');
 
 const app = express();
 
@@ -21,7 +22,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const db = require('./app/models');
-// db.sequelize.sync();
+db.sequelize
+	.sync()
+	.then(() => {
+		console.log('Database connected.');
+	})
+	.catch((err) => {
+		console.log('Failed to sync db: ' + err.message);
+	});
 // // drop the table if it already exists
 // db.sequelize.sync({ force: true }).then(() => {
 //   console.log("Drop and re-sync db.");
@@ -32,7 +40,8 @@ app.get('/', (req, res) => {
 	res.json({ message: 'Hello world!' });
 });
 
-app.use('/test', userRouter); // just for test, remove it later
+app.use('/eo', EORouter); // just for test, remove it later
+// app.use('/test', userRouter); // just for test, remove it later
 app.use('/auth', authRouter);
 app.use('/events', eventsRoute);
 app.use('/seller', sellerRouter);
