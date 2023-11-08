@@ -16,7 +16,7 @@ Copy the content of `app/config/config.json.example` to `app/config/config.json`
 
 ```
 cp app/config/config.json.example app/config/config.json
-cp env.example .env
+cp env.example .env.development
 ```
 
 and fill your environment variables.

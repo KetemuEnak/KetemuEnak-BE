@@ -3,5 +3,8 @@ package-lock.json
 
 .vscode/
 .env
+.env.development
+.env.testing
+.env.production
 
 app/config/config.json
