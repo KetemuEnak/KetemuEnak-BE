@@ -1,10 +1,13 @@
-require('dotenv').config({ path: `../../.env.${process.env.NODE_ENV}` });
+const path = require('path');
+require('dotenv').config({
+	path: path.resolve(__dirname, `../../.env.development`)
+});
 
 module.exports = {
 	HOST: process.env.POSTGRES_HOST,
-	USER: process.env.POSTGRESS_USERNAME,
-	PASSWORD: process.env.POSTGRESS_PASSWORD,
-	DB: process.env.POSTGRESS_DB,
+	USER: process.env.POSTGRES_USERNAME,
+	PASSWORD: process.env.POSTGRES_PASSWORD,
+	DB: process.env.POSTGRES_DB,
 	dialect: 'postgres',
 	pool: {
 		max: 5,

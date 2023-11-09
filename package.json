@@ -15,7 +15,7 @@
     "api",
     "postgresql"
   ],
-  "author": "bezkoder",
+  "author": "ketemuenak",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",

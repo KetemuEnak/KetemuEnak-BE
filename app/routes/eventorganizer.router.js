@@ -16,6 +16,8 @@ router.put('/:id_eo/event/:id_event', eventorganizer.updateEvent);
 
 router.put('/:id_eo/event/:id_event/unpublish', eventorganizer.unpublishEvent);
 
+router.put('/:id_eo/event/:id_event/publish', eventorganizer.publishEvent);
+
 router.get('/:id_eo/event/:id_event/list_seller', eventorganizer.getListSeller);
 
 router.get('/:id_eo/event/:id_event/pending', eventorganizer.getListPendingSeller);

@@ -37,7 +37,7 @@ db.sequelize
 
 // simple route
 app.get('/', (req, res) => {
-	res.json({ message: 'Hello world!' });
+	res.json({ message: 'Welcome to Ketemu Enak' });
 });
 
 app.use('/eo', EORouter); // just for test, remove it later

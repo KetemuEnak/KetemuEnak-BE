@@ -183,6 +183,30 @@ const unpublishEvent = async (req, res) => {
 	}
 };
 
+const publishEvent = async (req, res) => {
+	try {
+		const eventId = req.params.id_event;
+
+		// Find the user by ID
+		const event = await Event.findByPk(eventId);
+
+		if (!event) {
+			return res.status(404).json({ message: 'Event not found' });
+		}
+
+		// Update the user's profile fields
+		event.is_publish = true;
+		event.published_at = new Date();
+
+		// Save the updated user profile
+		await event.save();
+
+		res.json({ message: 'Event Published successfully', event });
+	} catch (error) {
+		res.status(500).json({ error: error.message });
+	}
+};
+
 // Delete an event (don't use it in production)
 const destroyEvent = async (req, res) => {
 	const { id_eo, id_event: eventId } = req.params;
@@ -378,6 +402,7 @@ module.exports = {
 	updateEvent,
 	destroyEvent,
 	unpublishEvent,
+	publishEvent,
 	getListSeller,
 	getListPendingSeller,
 	approveSeller,
