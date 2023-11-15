@@ -13,12 +13,12 @@ var corsOptions = {
 	origin: [
 		'http://localhost:8081',
 		'http://localhost:8080',
-		'https://ketemu-enak.vercel.app/'
+		'https://ketemu-enak.vercel.app'
 	],
 	methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
 	allowedHeaders: [
 		'Content-Type',
-		'Access-Control-Allow-Origin',
+		// 'Access-Control-Allow-Origin',
 		'Authorization',
 		'X-CSRF-Token',
 		'X-Requested-With',
