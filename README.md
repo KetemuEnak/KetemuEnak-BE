@@ -2,6 +2,16 @@
 
 ## Project Setup
 
+### Docker Setup
+
+Use Docker to easy setup the project
+
+```
+docker-compose up --build
+```
+
+If not, read the below section for manual installation.
+
 ### Install dependencies
 
 Use NPM to install dependencies:

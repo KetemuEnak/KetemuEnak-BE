@@ -17,11 +17,11 @@ COPY . .
 COPY app/config/config.json.example app/config/config.json
 COPY .env.example .env.development
 
-# Replace this line with the actual commands to fill in the environment variables if required
+# Install wait-for-it script
+RUN apt-get update && apt-get install -y wait-for-it
 
 # Expose the port your app runs on
 EXPOSE 3000
 
-# Command to start the app
-CMD ["npm", "run", "dev"]
-
+# Run migrations after DB ready
+CMD ["sh", "-c", "npm install -g sequelize-cli && cd app && wait-for-it db:5432 -- npx runmigration && npm run dev"]
