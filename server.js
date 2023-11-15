@@ -18,6 +18,7 @@ var corsOptions = {
 	methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
 	allowedHeaders: [
 		'Content-Type',
+		'Access-Control-Allow-Origin',
 		'Authorization',
 		'X-CSRF-Token',
 		'X-Requested-With',
