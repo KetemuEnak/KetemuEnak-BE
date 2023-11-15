@@ -242,8 +242,8 @@ const getListSeller = (req, res) => {
 		where: condition,
 		include: [
 			{
-				model: Event,
-				as: 'event'
+				model: User,
+				as: 'seller'
 			}
 		]
 	})
