@@ -22,7 +22,7 @@ const getUserById = (req, res) => {
 
 const updateUser = async (req, res) => {
 	try {
-		const { email, name, password, role, address, description, city, img_url } =
+		const { email, name, password, role, address, description, city, img_url, socmed_or_web_url, contact } =
 			req.body;
 		const userId = req.params.id;
 
@@ -45,6 +45,8 @@ const updateUser = async (req, res) => {
 		user.description = description;
 		user.city = city;
 		user.img_url = img_url;
+		user.socmed_or_web_url = socmed_or_web_url;
+		user.contact = contact;
 
 		// Save the updated user profile
 		await user.save();
