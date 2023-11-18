@@ -309,12 +309,10 @@ const rejectSeller = async (req, res) => {
 		const { rejected_reason } =
 			req.body;
 		const id_seller = req.params.id_seller;
-		var condition = id_seller ? { id: id_seller } : null;
+		// var condition = id_seller ? { id: id_seller } : null;
 
 		// Find the user by ID
-		const dataSeller = await Seller.findOne({
-			where: condition,
-		});
+		const dataSeller = await Seller.findByPk(id_seller);
 
 		if (!dataSeller) {
 			return res.status(404).json({ message: 'Seller not found' });
