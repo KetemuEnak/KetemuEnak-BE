@@ -72,3 +72,7 @@ Run the development server with the following command:
 ```
 npm run dev
 ```
+
+## Documentation
+
+To view the documentation, click the following link: [https://documenter.getpostman.com/view/28752957/2s9Ye8fa6r](https://documenter.getpostman.com/view/28752957/2s9Ye8fa6r)
